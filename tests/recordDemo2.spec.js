@@ -2,7 +2,7 @@ const { test, chromium } = require("@playwright/test")
 
 test('Verify record demo with target js and save to existing file', async () => {
   const browser = await chromium.launch({
-    headless: false
+    headless: true
   });
   const context = await browser.newContext();
   const page = await context.newPage();
