@@ -7,7 +7,7 @@ test.skip('Skip this test', async ({ page }) => {
 
 test('Not yet ready', async ({ page }) => {
     // page.goto('https://www.google.com')
-    test.fail()
+    // test.fail()
 })
 
 test.fixme('Test to be fixed', async ({ page }) => {

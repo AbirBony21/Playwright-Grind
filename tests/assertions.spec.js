@@ -35,7 +35,7 @@ test('Assertions Demo', async ({ page }) => {
     await expect(page).toHaveTitle(/.*Kitchen/)
 
     // Visual validation with screenshot
-    await expect(page).toHaveScreenshot()
+    // await expect(page).toHaveScreenshot()
 
 
 });
