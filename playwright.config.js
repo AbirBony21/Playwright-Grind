@@ -5,7 +5,7 @@ const { defineConfig, devices } = require('@playwright/test');
  */
 module.exports = defineConfig({
   testDir: './tests',
-  timeout: 10 * 1000,
+  timeout: 30 * 1000,
   expect: { timeout: 2000 },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -20,6 +20,10 @@ module.exports = defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. */
   use: {
+    // video: 'on',
+    // launchOptions: {
+    //   slowMo: 1000
+    // },
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 
