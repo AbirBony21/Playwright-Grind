@@ -5,7 +5,8 @@ const { defineConfig, devices } = require('@playwright/test');
  */
 module.exports = defineConfig({
   testDir: './tests',
-  timeout: 30000,
+  timeout: 30 * 1000,
+  expect: { timeout: 2000 },
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -19,12 +20,15 @@ module.exports = defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. */
   use: {
+    // video: 'on',
+    // launchOptions: {
+    //   slowMo: 1000
+    // },
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. */
     trace: 'on-first-retry',
-    // expect: { timeout: 3000 }
   },
 
   /* Configure projects for major browsers */
