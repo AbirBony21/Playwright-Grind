@@ -15,7 +15,8 @@ A personal practice repository to learn and experiment with [Playwright](https:/
 - ⚙️ Hooks (`beforeEach`, `afterEach`) & Grouping tests with `test.describe`  
 - 🏷️ Annotations & tags (`test.skip`, `test.only`, `test.fail`, `@smoke`, etc.)
 - 👨‍💻 Demo login tests on multiple websites (Applitools, Orange HRM, NopCommerce, Saucedemo, Herokuapp)
-- 📂 **Page Object Model (POM)** structure for reusable test code  
+- 📂 **Page Object Model (POM)** structure for reusable test code
+- 🌐 **API Testing** using Playwright’s `request` fixture  
 
 ---
 
@@ -29,6 +30,7 @@ playwright-grind/
 │
 ├── tests/
 │ ├── annotationAndTags.spec.js
+│ ├── api_tests.spec.js
 │ ├── assertions.spec.js
 │ ├── hooksAndGroups.spec.js
 │ ├── loginDemo.spec.js
@@ -109,14 +111,43 @@ playwright-grind/
   - Cleanup after test runs with `context.close()` & `browser.close()`
 
 
+---
+
+### ⚙️ `api_tests.spec.js`
+
+Demonstrates **API testing** with **Playwright** using the `request` fixture to send HTTP requests directly — without browser interaction. [Reqres](https://reqres.in/) Public API was used here.
+
+#### ✅ Sample Tests Included:
+- **GET** – List Users
+- **GET** – Single User
+- **POST** – Create User
+- **PUT** – Update User
+- **PATCH** – Partial Update
+- **DELETE** – Remove User
+
+#### 🔐 API Key Usage
+
+The API endpoints (based on `reqres.in`) require an API key header:
+
+```js
+headers: {
+  'x-api-key': 'reqres-free-v1'
+}
+```
+
+
 ### 🧩 Notes & Learnings
 
 - Playwright caches browser binaries per version, so multiple versions may take extra disk space.
 - Using test.only & tags (e.g. **@smoke**) helps isolate critical tests during CI/CD pipelines.
 - Trace Viewer + video recordings are invaluable for debugging failed runs.
 - POM makes test scripts more maintainable & scalable.
+- Playwright can perform both UI and API testing in one framework. Combining API + UI tests ensures robust end-to-end coverage.
 
 ### 📌 Future Improvements
 
 - Real world scenario **POM** implementation
-- Add **API testing** with Playwright’s request context
+- Store API keys in environment variables
+- Add API test assertions for schema validation
+- Combine UI + API tests for hybrid workflows
+- Hands-on practice for CI/CD
